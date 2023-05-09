@@ -34,6 +34,9 @@ function App() {
           { from: "I", to: "J", value: 10 },
           { from: "H", to: "J", value: 90 },
         ]}
+        callback={(nodeId, nodeValue, coords) => {
+          console.log(nodeId, nodeValue, coords);
+        }}
       />
       {/* <Plotly /> */}
     </div>

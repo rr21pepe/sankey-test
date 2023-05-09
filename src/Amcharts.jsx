@@ -3,7 +3,7 @@ import "./App.css";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5flow from "@amcharts/amcharts5/flow";
 
-export default function AmchartsSenkey({ data, connexions }) {
+export default function AmchartsSenkey({ data, connexions, callback }) {
   const ref = useRef(null);
 
   useLayoutEffect(() => {
@@ -29,8 +29,11 @@ export default function AmchartsSenkey({ data, connexions }) {
     series.nodes.nodes.template.setup = function (node) {
       node.events.on("click", function (e) {
         const dataItem = e.target.dataItem;
+        const nodeId = dataItem.dataContext.id;
         const nodeValue = dataItem.dataContext.value;
-        console.log(`Node value: ${nodeValue}`);
+        const coords = { x: e.point.x, y: e.point.y };
+
+        callback(nodeId, nodeValue, coords);
       });
     };
 
