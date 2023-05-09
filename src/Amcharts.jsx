@@ -15,25 +15,17 @@ export default function AmchartsSenkey({ data, connexions }) {
         targetIdField: "to",
         valueField: "value",
         paddingRight: 60,
-        dataItem: "value",
       })
     );
 
     series.nodes.nodes.template.setAll({
       draggable: false,
-      active: true,
-      focusable: true,
     });
 
     series.nodes.setAll({
       nameField: "name",
       valueField: "value",
-      fillField: "fill",
-      idField: "id",
-      userData: "asdf",
     });
-
-    console.log(series);
 
     series.nodes.nodes.template.setup = function (node) {
       node.events.on("click", function (e) {
