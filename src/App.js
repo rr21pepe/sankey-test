@@ -1,8 +1,6 @@
 import "./App.css";
 import * as am5 from "@amcharts/amcharts5";
 
-import GoogleCharts from "./GoogleCharts";
-import Plotly from "./Plotly";
 import AmchartsSenkey from "./Amcharts";
 
 function App() {
