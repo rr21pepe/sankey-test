@@ -24,14 +24,13 @@ export default function AmchartsSenkey({ data, connexions }) {
 
     series.nodes.setAll({
       nameField: "name",
-      valueField: "value",
     });
 
     series.nodes.nodes.template.setup = function (node) {
       node.events.on("click", function (e) {
         const dataItem = e.target.dataItem;
-        console.log(dataItem.dataContext.value);
-        console.log(dataItem);
+        const nodeValue = dataItem.dataContext.value;
+        console.log(`Node value: ${nodeValue}`);
       });
     };
 
