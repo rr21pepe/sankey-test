@@ -9,8 +9,8 @@ function App() {
       {/* <GoogleCharts /> */}
       <AmchartsSenkey
         data={[
-          { id: "A", name: "Node A", value: 200, fill: am5.color(0xff621f) },
-          { id: "B", name: "Node B", value: 201, fill: am5.color(0x297373) },
+          { id: "A", name: "Node A", value: 200, fill: am5.color("#ff621f") },
+          { id: "B", name: "Node B", value: 201, fill: am5.color("#297373") },
           { id: "C", name: "Node C", value: 202, fill: am5.color(0xff621f) },
           { id: "D", name: "Node D", value: 203, fill: am5.color(0x946b49) },
           { id: "E", name: "Node E", value: 204, fill: am5.color(0x297373) },
