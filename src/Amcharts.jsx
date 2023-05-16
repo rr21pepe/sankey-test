@@ -3,7 +3,12 @@ import "./App.css";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5flow from "@amcharts/amcharts5/flow";
 
-export default function AmchartsSenkey({ data, connexions, callback }) {
+export default function AmchartsSenkey({
+  data,
+  disabledColumns,
+  connexions,
+  callback,
+}) {
   const ref = useRef(null);
 
   useLayoutEffect(() => {
@@ -15,6 +20,7 @@ export default function AmchartsSenkey({ data, connexions, callback }) {
         targetIdField: "to",
         valueField: "value",
         paddingRight: 60,
+        nodeWidth: 15,
       })
     );
 
@@ -43,12 +49,16 @@ export default function AmchartsSenkey({ data, connexions, callback }) {
     series.nodes.data.setAll(data);
     series.data.setAll(connexions);
 
-    series.appear(1000, 100);
+    series.nodes.nodes.each((node) => {
+      if (disabledColumns.includes(node.dataItem.dataContext.columnId)) {
+        node.set("opacity", 0);
+      }
+    });
 
     return () => {
       root.dispose();
     };
-  }, []);
+  }, [disabledColumns, data, callback, connexions]);
 
   return (
     <div
