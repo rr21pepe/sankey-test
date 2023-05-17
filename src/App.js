@@ -116,7 +116,7 @@ function App() {
             columnId: "column-4",
           },
         ]}
-        connexions={[
+        links={[
           { from: "A", to: "D", value: 100 },
           { from: "B", to: "D", value: 80 },
           { from: "B", to: "E", value: 40 },

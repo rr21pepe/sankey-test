@@ -6,7 +6,7 @@ import * as am5flow from "@amcharts/amcharts5/flow";
 export default function AmchartsSenkey({
   data,
   disabledColumns,
-  connexions,
+  links,
   callback,
 }) {
   const ref = useRef(null);
@@ -47,7 +47,7 @@ export default function AmchartsSenkey({
     series.links.template.set("templateField", "linkSettings");
 
     series.nodes.data.setAll(data);
-    series.data.setAll(connexions);
+    series.data.setAll(links);
 
     series.nodes.nodes.each((node) => {
       if (disabledColumns.includes(node.dataItem.dataContext.columnId)) {
@@ -58,7 +58,7 @@ export default function AmchartsSenkey({
     return () => {
       root.dispose();
     };
-  }, [disabledColumns, data, callback, connexions]);
+  }, [disabledColumns, data, callback, links]);
 
   return (
     <div
