@@ -56,6 +56,7 @@ function App() {
             value: 200,
             fill: am5.color("#ff621f"),
             columnId: "column-1",
+            relatedPaths: ["A0", "A1"],
           },
           {
             id: "B",
@@ -63,6 +64,7 @@ function App() {
             value: 201,
             fill: am5.color("#00FF00"),
             columnId: "column-1",
+            relatedPaths: [],
           },
           {
             id: "C",
@@ -70,6 +72,7 @@ function App() {
             value: 202,
             fill: am5.color(0xff621f),
             columnId: "column-1",
+            relatedPaths: [],
           },
           {
             id: "D",
@@ -77,6 +80,7 @@ function App() {
             value: 203,
             fill: am5.color(0x946b49),
             columnId: "column-2",
+            relatedPaths: ["A0", "A1"],
           },
           {
             id: "E",
@@ -84,6 +88,7 @@ function App() {
             value: 204,
             fill: am5.color(0x297373),
             columnId: "column-2",
+            relatedPaths: [],
           },
           {
             id: "G",
@@ -91,6 +96,7 @@ function App() {
             value: 205,
             fill: am5.color(0xff621f),
             columnId: "column-3",
+            relatedPaths: ["A0"],
           },
           {
             id: "H",
@@ -98,6 +104,7 @@ function App() {
             value: 206,
             fill: am5.color(0x297373),
             columnId: "column-3",
+            relatedPaths: [],
           },
           {
             id: "I",
@@ -105,6 +112,7 @@ function App() {
             value: 207,
             fill: am5.color(0x946b49),
             columnId: "column-3",
+            relatedPaths: ["A1"],
           },
           {
             id: "J",
@@ -112,6 +120,15 @@ function App() {
             value: 208,
             fill: am5.color(0x297373),
             columnId: "column-4",
+            relatedPaths: ["A0", "A1"],
+          },
+          {
+            id: "K",
+            name: "Node K",
+            value: 209,
+            fill: am5.color(0x297373),
+            columnId: "column-5",
+            relatedPaths: [],
           },
         ]}
         links={[
@@ -126,6 +143,9 @@ function App() {
           { from: "A", to: "D", id: "A2", value: 20 },
           { from: "D", to: "H", id: "A2", value: 30 },
           { from: "H", to: "J", id: "A2", value: 90 },
+          { from: "C", to: "E", id: "A2", value: 20 },
+          { from: "E", to: "H", id: "A2", value: 30 },
+          { from: "H", to: "K", id: "A2", value: 30 },
 
           { from: "B", to: "D", id: "A3", value: 80 },
 

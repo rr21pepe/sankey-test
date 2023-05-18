@@ -54,6 +54,22 @@ export default function AmchartsSenkey({
 
         callback(nodeId, nodeValue, coords);
       });
+
+      node.events.on("pointerover", function (e) {
+        const { relatedPaths } = e.target.dataItem.dataContext;
+
+        series.links.each((link) => {
+          if (relatedPaths.includes(link.dataItem.dataContext.id)) {
+            link.hover();
+          }
+        });
+      });
+
+      node.events.on("pointerout", function (e) {
+        series.links.each((link) => {
+          link.unhover();
+        });
+      });
     };
 
     series.links.template.setup = function (node) {
