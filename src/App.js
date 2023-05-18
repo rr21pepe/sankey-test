@@ -55,7 +55,6 @@ function App() {
             name: "Node A",
             value: 200,
             fill: am5.color("#ff621f"),
-            disabled: true,
             columnId: "column-1",
           },
           {
@@ -63,7 +62,6 @@ function App() {
             name: "Node B",
             value: 201,
             fill: am5.color("#00FF00"),
-            disabled: true,
             columnId: "column-1",
           },
           {
