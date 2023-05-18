@@ -20,7 +20,8 @@ export default function AmchartsSenkey({
         targetIdField: "to",
         valueField: "value",
         paddingRight: 60,
-        nodeWidth: 15,
+        nodeWidth: 30,
+        nodePadding: 10,
       })
     );
 
@@ -37,6 +38,10 @@ export default function AmchartsSenkey({
     });
 
     series.links.template.setAll({
+      cursorOverStyle: "pointer",
+    });
+
+    series.nodes.nodes.template.setAll({
       cursorOverStyle: "pointer",
     });
 
@@ -78,6 +83,17 @@ export default function AmchartsSenkey({
       if (disabledColumns.includes(node.dataItem.dataContext.columnId)) {
         node.set("opacity", 0);
       }
+    });
+
+    series.nodes.rectangles.template.setAll({
+      fillOpacity: 0.5,
+      stroke: am5.color("#ffffff"),
+      strokeWidth: 2,
+      strokeOpacity: 0.8,
+      cornerRadiusTL: 5,
+      cornerRadiusTR: 5,
+      cornerRadiusBL: 5,
+      cornerRadiusBR: 5,
     });
 
     return () => {
