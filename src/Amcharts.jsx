@@ -51,6 +51,23 @@ export default function AmchartsSenkey({
       });
     };
 
+    series.links.template.setup = function (node) {
+      node.events.on("pointerover", function (e) {
+        const id = e.target.dataItem.dataContext.id.split("-")[0];
+
+        series.links.each((link) => {
+          if (link.dataItem.dataContext.id.indexOf(id) !== -1) {
+            link.hover();
+          }
+        });
+      });
+      node.events.on("pointerout", function (e) {
+        series.links.each((link) => {
+          link.unhover();
+        });
+      });
+    };
+
     series.nodes.rectangles.template.set("templateField", "nodeSettings");
     series.links.template.set("templateField", "linkSettings");
 

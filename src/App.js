@@ -115,17 +115,24 @@ function App() {
           },
         ]}
         links={[
-          { from: "A", to: "D", value: 100 },
-          { from: "B", to: "D", value: 80 },
-          { from: "B", to: "E", value: 40 },
-          { from: "C", to: "E", value: 30 },
-          { from: "D", to: "G", value: 50 },
-          { from: "D", to: "I", value: 20 },
-          { from: "D", to: "H", value: 30 },
-          { from: "E", to: "H", value: 60 },
-          { from: "G", to: "J", value: 50 },
-          { from: "I", to: "J", value: 10 },
-          { from: "H", to: "J", value: 90 },
+          { from: "A", to: "D", id: "A0", value: 100 },
+          { from: "D", to: "G", id: "A0", value: 50 },
+          { from: "G", to: "J", id: "A0", value: 50 },
+
+          { from: "A", to: "D", id: "A1", value: 20 },
+          { from: "D", to: "I", id: "A1", value: 20 },
+          { from: "I", to: "J", id: "A1", value: 10 },
+
+          { from: "A", to: "D", id: "A2", value: 20 },
+          { from: "D", to: "H", id: "A2", value: 30 },
+          { from: "H", to: "J", id: "A2", value: 90 },
+
+          { from: "B", to: "D", id: "A3", value: 80 },
+
+          { from: "B", to: "E", id: "A4", value: 40 },
+          { from: "E", to: "H", id: "A4", value: 60 },
+
+          { from: "C", to: "E", id: "A5", value: 30 },
         ]}
         callback={(nodeId, nodeValue, coords) => {
           console.log(nodeId, nodeValue, coords);
