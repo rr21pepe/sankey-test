@@ -32,6 +32,14 @@ export default function AmchartsSenkey({
       nameField: "name",
     });
 
+    series.links.template.setAll({
+      tooltipText: "",
+    });
+
+    series.links.template.setAll({
+      cursorOverStyle: "pointer",
+    });
+
     series.nodes.nodes.template.setup = function (node) {
       node.events.on("click", function (e) {
         const dataItem = e.target.dataItem;
